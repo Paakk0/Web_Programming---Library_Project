@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    background-color: rgb(25, 35, 60);
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.navigator {
+    margin: 0;
+    height: 5vh;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    background-color: rgb(50, 70, 100);
+    padding: 10px;
+}
+
+.navigator a {
+    height: 35px;
+    width: 75px;
+    border-radius: 1rem;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    background-color: cyan;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.75s ease, color 0.75s ease;
+}
+
+.navigator a:hover {
+    background-color: yellow;
+    color: black;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin:100px 75px 20px;
+    gap: 30px 10px;
+}
+
+.page {
+    width: 15vw; 
+    height: 50vh;
+    border-radius: 2rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-decoration: none;
+    background-color: rgb(45, 50, 80);
+    position: relative;
+    transition: 0.5s ease;
+}
+
+.page img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: height 0.5s ease;
+    border-radius: 8px;
+}
+
+.page span {
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.page:hover{
+    margin-top:-20px;
+}
+
+.page:hover img {
+    height: 85%;
+}
+
+.page:hover span {
+    opacity: 1;
+}
+

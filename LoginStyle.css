@@ -1,0 +1,38 @@
+body{
+    margin:0;
+    background: brown;
+}
+
+form{
+    width:25vw;
+    height:45vh;
+    border-radius: 4rem;
+    background-color: rgba(255,255,255,0.2);
+    position:absolute;
+    top:25vh;
+    left:37.5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input{
+    width:75%;
+    height:10%;
+    border-radius: 2rem;
+    color:purple;
+    font-size:24px;
+    text-align: center;
+    transition:0.3s ease;
+}
+
+form a{
+    font-size:26px;
+    color:white;
+}
+
+input:hover{
+    width:80%;
+    cursor: pointer;
+}

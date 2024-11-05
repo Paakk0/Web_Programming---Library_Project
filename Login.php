@@ -7,18 +7,27 @@
         <link rel="stylesheet" href="./Styles/LoginStyle.css"/>
     </head>
     <body>
+        <div class="navigator">
+            <h1 class="title"><a href="Main.php">Library</a></h1>
+        </div>
         <form method="post">
-            <input type="text" name="email" placeholder="Email"/><br>
-            <input type="password" name="pass" placeholder="Password"/><br>
+            <input type="text" name="email" placeholder="Email" required/><br>
+            <input type="password" name="pass" placeholder="Password" required/><br>
             <input type="submit" name="submit" value="Log in"/><br>
             <a href="Sign_up.php">Sign up</a>
         </form>
         <?php
+            include_once 'Validation/Authentication.php';
             if (isset($_POST['submit'])) {
                 $email = $_POST['email'];
                 $pass  = $_POST['pass'];
                 if (($email != NULL && $pass != NULL)) {
-                    login($email, $password);
+                    if (login($email, $pass)) {
+                        echo "<script type='text/javascript'>window.location.href='Main.php';</script>";
+                    }
+                    else {
+                        echo "<script type='text/javascript'>alert('User not found!');</script>";
+                    }
                 }
                 else {
                     echo "<script type='text/javascript'>alert('Please fill all fields!');</script>";

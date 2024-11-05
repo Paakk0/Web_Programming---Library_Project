@@ -1,38 +1,70 @@
-body{
-    margin:0;
-    background: brown;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
 }
 
-form{
-    width:25vw;
-    height:45vh;
-    border-radius: 4rem;
-    background-color: rgba(255,255,255,0.2);
-    position:absolute;
-    top:25vh;
-    left:37.5vw;
+.navigator {
+    background-color: #6c63ff;
+    padding: 20px;
+    text-align: center;
+}
+
+.navigator a {
+    color: white;
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+form {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 400px;
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
-input{
-    width:75%;
-    height:10%;
-    border-radius: 2rem;
-    color:purple;
-    font-size:24px;
-    text-align: center;
-    transition:0.3s ease;
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
 }
 
-form a{
-    font-size:26px;
-    color:white;
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #6c63ff;
+    outline: none;
 }
 
-input:hover{
-    width:80%;
+input[type="submit"] {
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 1rem;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #5755d9;
+}
+
+a {
+    color: #6c63ff;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }

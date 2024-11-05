@@ -1,29 +1,17 @@
 <?php
 
+    include_once '../Database/UserOperations.php';
+
     session_start();
-    require_once 'Database/Operations.php';
-
-    function login($email, $password) {
-        $user = findUser($email, $password);
-
-        if ($user) {
-            $_SESSION['user_id']          = $user->id;
-            $_SESSION['user_name']        = $user->name;
-            $_SESSION['user_email']       = $user->email;
-            $_SESSION['user_is_employee'] = $user->employee;
-            $_SESSION['user_phone']       = $user->phone;
-
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
 
     function signIn($name, $email, $phone, $pass) {
         if (checkAllFields($name, $email, $phone, $pass) && checkEmail($email) && checkPhone($phone) && checkPassword($pass)) {
             return true;
         }
+    }
+
+    function checkSignUp($name, $email, $phone, $pass) {
+        return checkAllFields($name, $email, $phone, $pass) && checkEmail($email) && checkPhone($phone) && checkPassword($pass);
     }
 
     function checkAllFields($name, $email, $phone, $pass) {
@@ -58,6 +46,23 @@
         return false;
     }
 
+    function login($email, $password) {
+        $user = findUser($email, $password);
+        if ($user) {
+            $_SESSION['user_id']          = $user->id;
+            $_SESSION['user_name']        = $user->name;
+            $_SESSION['user_image']       = $user->image;
+            $_SESSION['user_email']       = $user->email;
+            $_SESSION['user_is_employee'] = $user->employee;
+            $_SESSION['user_phone']       = $user->phone;
+            $_SESSION['user_password']    = $user->pass;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     function logout() {
         session_unset();
         session_destroy();
@@ -69,10 +74,13 @@
 
     function getUserInfo() {
         return [
-            'id' => $_SESSION['user_id'] ?? null,
-            'name' => $_SESSION['user_name'] ?? null,
-            'email' => $_SESSION['user_email'] ?? null,
-            'employee' => $_SESSION['user_employee'] ?? null
+            'id' => isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null,
+            'name' => isset($_SESSION['user_name']) ? $_SESSION['user_name'] : null,
+            'image' => isset($_SESSION['user_image']) ? $_SESSION['user_image'] : null,
+            'email' => isset($_SESSION['user_email']) ? $_SESSION['user_email'] : null,
+            'phone' => isset($_SESSION['user_phone']) ? $_SESSION['user_phone'] : null,
+            'employee' => isset($_SESSION['user_is_employee']) ? $_SESSION['user_is_employee'] : null,
+            'password' => isset($_SESSION['user_password']) ? $_SESSION['user_password'] : null
         ];
     }
     

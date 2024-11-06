@@ -96,6 +96,7 @@ body {
 }
 
 .search-container {
+    width: 100%;
     display: flex;
     justify-content: center;
     padding: 10px;

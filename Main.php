@@ -13,11 +13,6 @@
                 require './Validation/Authentication.php';
                 if (isLoggedIn()) {
                     $userInfo = getUserInfo();
-                    if (isset($_POST['logout'])) {
-                        logout();
-                        echo "<script type='text/javascript'>window.location.href='Login.php';</script>";
-                    }
-
                     echo '<div class="profile-container">'
                     . '<img src="' . $userInfo['image'] . '" alt="Profile Image" class="profile-image"/>'
                     . '<div class="profile-dropdown">'
@@ -28,10 +23,7 @@
                     if ($userInfo['employee']) {
                         echo '<a href="AdminDashboard.php">Dashboard</a>';
                     }
-                    echo '<form method="post">'
-                    . '<button type="submit" name="logout">Log out</button>'
-                    . '</form>'
-                    . '</div>'
+                    echo '<a href="Log_out.php">Log out</a>'
                     . '</div>';
                 }
                 else {
@@ -39,13 +31,14 @@
                 }
             ?>
 
-
+            <br>
         </div>
-        <form method="GET" action="Main.php" class="search-container">
-            <input type="text" name="search" placeholder="Search books..."/>
-            <button type="submit">Search</button>
-        </form>
     </div>
+
+    <form method="GET" action="Main.php" class="search-container">
+        <input type="text" name="search" placeholder="Search books..."/>
+        <button type="submit">Search</button>
+    </form>
 
     <div class="container">
         <?php
